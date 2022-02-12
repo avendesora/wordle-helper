@@ -4,6 +4,7 @@ from typing import Optional
 
 from common_five_letter_words import common_words as common_five_letter_words
 from five_letter_words import words as five_letter_words
+from used_five_letter_words import used_words as used_five_letter_words
 
 
 @dataclass
@@ -34,11 +35,18 @@ class WordGame:
         self,
         possible_words: Optional[set[str]],
         possible_common_words: Optional[set[str]],
+        used_words: Optional[set[str]],
     ):
         self._eliminated_characters = set()
         self._included_characters = {}
-        self.possible_words = possible_words
-        self.possible_common_words = possible_common_words
+        self.possible_words = possible_words if possible_words else set()
+        self.possible_common_words = (
+            possible_common_words if possible_common_words else set()
+        )
+
+        if used_words:
+            self.possible_words = self.possible_words - used_words
+            self.possible_common_words = self.possible_common_words - used_words
 
     def make_guess(self, guess: list[CharacterGuess]):
         for index, character_guess in enumerate(guess):
@@ -123,7 +131,11 @@ class WordGame:
 
 
 def main():
-    word_game: WordGame = WordGame(five_letter_words, common_five_letter_words)
+    word_game: WordGame = WordGame(
+        five_letter_words,
+        common_five_letter_words,
+        used_five_letter_words
+    )
 
     # Guess #1 - ADIEU
     word_game.make_guess(
