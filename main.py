@@ -140,33 +140,22 @@ def main():
     # Guess #1 - ADIEU
     word_game.make_guess(
         [
-            CharacterGuess("a", CharacterStatus.YELLOW),
+            CharacterGuess("a", CharacterStatus.GRAY),
             CharacterGuess("d", CharacterStatus.GRAY),
-            CharacterGuess("i", CharacterStatus.GRAY),
+            CharacterGuess("i", CharacterStatus.YELLOW),
             CharacterGuess("e", CharacterStatus.GRAY),
-            CharacterGuess("u", CharacterStatus.YELLOW),
+            CharacterGuess("u", CharacterStatus.GRAY),
         ]
     )
 
-    # Guess #2 - QUACK
+    # Guess #2 - STRIP
     word_game.make_guess(
         [
-            CharacterGuess("q", CharacterStatus.GRAY),
-            CharacterGuess("u", CharacterStatus.YELLOW),
-            CharacterGuess("a", CharacterStatus.YELLOW),
-            CharacterGuess("c", CharacterStatus.GRAY),
-            CharacterGuess("k", CharacterStatus.GRAY),
-        ]
-    )
-
-    # Guess #3 - FAULT
-    word_game.make_guess(
-        [
-            CharacterGuess("f", CharacterStatus.GRAY),
-            CharacterGuess("a", CharacterStatus.YELLOW),
-            CharacterGuess("u", CharacterStatus.YELLOW),
-            CharacterGuess("l", CharacterStatus.YELLOW),
-            CharacterGuess("t", CharacterStatus.YELLOW),
+            CharacterGuess("s", CharacterStatus.GRAY),
+            CharacterGuess("t", CharacterStatus.GRAY),
+            CharacterGuess("r", CharacterStatus.YELLOW),
+            CharacterGuess("i", CharacterStatus.GREEN),
+            CharacterGuess("p", CharacterStatus.GRAY),
         ]
     )
     word_game.print_possible_answers()

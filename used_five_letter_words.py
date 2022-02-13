@@ -238,4 +238,5 @@ used_words = {
     "pause",
     "ulcer",
     "ultra",
+    "robin",
 }
