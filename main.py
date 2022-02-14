@@ -2,9 +2,9 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Optional
 
-from common_five_letter_words import common_words as common_five_letter_words
+from common_five_letter_words import words as common_five_letter_words
 from five_letter_words import words as five_letter_words
-from used_five_letter_words import used_words as used_five_letter_words
+from used_five_letter_words import words as used_five_letter_words
 
 
 @dataclass
@@ -132,9 +132,7 @@ class WordGame:
 
 def main():
     word_game: WordGame = WordGame(
-        five_letter_words,
-        common_five_letter_words,
-        used_five_letter_words
+        five_letter_words, common_five_letter_words, used_five_letter_words
     )
 
     # Guess #1 - ADIEU
@@ -153,9 +151,20 @@ def main():
         [
             CharacterGuess("s", CharacterStatus.GRAY),
             CharacterGuess("t", CharacterStatus.GRAY),
-            CharacterGuess("r", CharacterStatus.YELLOW),
+            CharacterGuess("r", CharacterStatus.GRAY),
             CharacterGuess("i", CharacterStatus.GREEN),
             CharacterGuess("p", CharacterStatus.GRAY),
+        ]
+    )
+
+    # Guess #2 - COMIC
+    word_game.make_guess(
+        [
+            CharacterGuess("c", CharacterStatus.GREEN),
+            CharacterGuess("o", CharacterStatus.GRAY),
+            CharacterGuess("m", CharacterStatus.GRAY),
+            CharacterGuess("i", CharacterStatus.GREEN),
+            CharacterGuess("c", CharacterStatus.GREEN),
         ]
     )
     word_game.print_possible_answers()

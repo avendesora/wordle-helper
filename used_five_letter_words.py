@@ -1,4 +1,4 @@
-used_words = {
+words = {
     "cigar",
     "rebut",
     "sissy",
@@ -239,4 +239,5 @@ used_words = {
     "ulcer",
     "ultra",
     "robin",
+    "cynic",
 }
