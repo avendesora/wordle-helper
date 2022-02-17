@@ -2,6 +2,8 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Optional
 
+import hp_words
+import used_hp_words
 from common_five_letter_words import words as common_five_letter_words
 from five_letter_words import words as five_letter_words
 from used_five_letter_words import words as used_five_letter_words
@@ -131,40 +133,32 @@ class WordGame:
 
 
 def main():
+    # word_game: WordGame = WordGame(
+    #     hp_words.words, set(), used_hp_words.words
+    # )
     word_game: WordGame = WordGame(
         five_letter_words, common_five_letter_words, used_five_letter_words
     )
 
-    # Guess #1 - ADIEU
+    # Guess #1 - AUDIO
     word_game.make_guess(
         [
-            CharacterGuess("a", CharacterStatus.GRAY),
+            CharacterGuess("a", CharacterStatus.YELLOW),
+            CharacterGuess("u", CharacterStatus.YELLOW),
             CharacterGuess("d", CharacterStatus.GRAY),
-            CharacterGuess("i", CharacterStatus.YELLOW),
-            CharacterGuess("e", CharacterStatus.GRAY),
-            CharacterGuess("u", CharacterStatus.GRAY),
+            CharacterGuess("i", CharacterStatus.GRAY),
+            CharacterGuess("o", CharacterStatus.GRAY),
         ]
     )
 
-    # Guess #2 - STRIP
+    # Guess #2 - SAUCE
     word_game.make_guess(
         [
             CharacterGuess("s", CharacterStatus.GRAY),
-            CharacterGuess("t", CharacterStatus.GRAY),
-            CharacterGuess("r", CharacterStatus.GRAY),
-            CharacterGuess("i", CharacterStatus.GREEN),
-            CharacterGuess("p", CharacterStatus.GRAY),
-        ]
-    )
-
-    # Guess #2 - COMIC
-    word_game.make_guess(
-        [
-            CharacterGuess("c", CharacterStatus.GREEN),
-            CharacterGuess("o", CharacterStatus.GRAY),
-            CharacterGuess("m", CharacterStatus.GRAY),
-            CharacterGuess("i", CharacterStatus.GREEN),
-            CharacterGuess("c", CharacterStatus.GREEN),
+            CharacterGuess("a", CharacterStatus.GREEN),
+            CharacterGuess("u", CharacterStatus.GREEN),
+            CharacterGuess("c", CharacterStatus.YELLOW),
+            CharacterGuess("e", CharacterStatus.GRAY),
         ]
     )
     word_game.print_possible_answers()

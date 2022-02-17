@@ -240,4 +240,6 @@ words = {
     "ultra",
     "robin",
     "cynic",
+    "aroma",
+    "caulk",
 }
