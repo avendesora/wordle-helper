@@ -1,6 +1,6 @@
-from common_five_letter_words import words as common_words
-from five_letter_words import words
-from used_five_letter_words import words as used_words
+from datasets.wordle.allowed_words import words
+from datasets.wordle.common_words import words as common_words
+from datasets.wordle.used_words import words as used_words
 from word_game_helper import CharacterGuess, CharacterStatus, WordGameHelper
 
 

@@ -1,147 +1,102 @@
-from common_five_letter_words import words as common_five_letter_words
-from five_letter_words import words as five_letter_words
-from used_five_letter_words import words as used_five_letter_words
+from datasets.wordle.allowed_words import words as words
+from datasets.wordle.common_words import words as common_words
+from datasets.wordle.used_words import words as used_words
 from word_game_helper import CharacterGuess, CharacterStatus, WordGameHelper
+
+GRAY: CharacterStatus = CharacterStatus.GRAY
+GREEN: CharacterStatus = CharacterStatus.GREEN
+YELLOW: CharacterStatus = CharacterStatus.YELLOW
+
+GAME1: WordGameHelper = WordGameHelper(words, common_words, used_words)
+GAME2: WordGameHelper = WordGameHelper(words, common_words, used_words)
+GAME3: WordGameHelper = WordGameHelper(words, common_words, used_words)
+GAME4: WordGameHelper = WordGameHelper(words, common_words, used_words)
+
+
+def guess(word: str, statuses: list[list[CharacterStatus]]) -> None:
+    if len(word) != 5 or len(statuses) != 4:
+        return
+
+    for status in statuses:
+        if len(status) != 5:
+            return
+
+    GAME1.make_guess(
+        [
+            CharacterGuess(word[0], statuses[0][0]),
+            CharacterGuess(word[1], statuses[0][1]),
+            CharacterGuess(word[2], statuses[0][2]),
+            CharacterGuess(word[3], statuses[0][3]),
+            CharacterGuess(word[4], statuses[0][4]),
+        ]
+    )
+
+    GAME2.make_guess(
+        [
+            CharacterGuess(word[0], statuses[1][0]),
+            CharacterGuess(word[1], statuses[1][1]),
+            CharacterGuess(word[2], statuses[1][2]),
+            CharacterGuess(word[3], statuses[1][3]),
+            CharacterGuess(word[4], statuses[1][4]),
+        ]
+    )
+
+    GAME3.make_guess(
+        [
+            CharacterGuess(word[0], statuses[2][0]),
+            CharacterGuess(word[1], statuses[2][1]),
+            CharacterGuess(word[2], statuses[2][2]),
+            CharacterGuess(word[3], statuses[2][3]),
+            CharacterGuess(word[4], statuses[2][4]),
+        ]
+    )
+
+    GAME4.make_guess(
+        [
+            CharacterGuess(word[0], statuses[3][0]),
+            CharacterGuess(word[1], statuses[3][1]),
+            CharacterGuess(word[2], statuses[3][2]),
+            CharacterGuess(word[3], statuses[3][3]),
+            CharacterGuess(word[4], statuses[3][4]),
+        ]
+    )
 
 
 def main():
-    word_game: WordGameHelper = WordGameHelper(
-        five_letter_words, common_five_letter_words, used_five_letter_words
-    )
-    word_game2: WordGameHelper = WordGameHelper(
-        five_letter_words, common_five_letter_words, used_five_letter_words
-    )
-    word_game3: WordGameHelper = WordGameHelper(
-        five_letter_words, common_five_letter_words, used_five_letter_words
-    )
-    word_game4: WordGameHelper = WordGameHelper(
-        five_letter_words, common_five_letter_words, used_five_letter_words
-    )
-
-    word_game.make_guess(
+    guess(
+        "adieu",
         [
-            CharacterGuess("a", CharacterStatus.YELLOW),
-            CharacterGuess("d", CharacterStatus.YELLOW),
-            CharacterGuess("i", CharacterStatus.GRAY),
-            CharacterGuess("e", CharacterStatus.GRAY),
-            CharacterGuess("u", CharacterStatus.GRAY),
-        ]
+            [YELLOW, YELLOW, GRAY, GRAY, GRAY],
+            [GREEN, GRAY, GREEN, YELLOW, GRAY],
+            [GREEN, GRAY, GREEN, YELLOW, GRAY],
+            [GRAY, GRAY, GRAY, YELLOW, YELLOW],
+        ],
     )
 
-    word_game2.make_guess(
+    guess(
+        "sport",
         [
-            CharacterGuess("a", CharacterStatus.GRAY),
-            CharacterGuess("d", CharacterStatus.GRAY),
-            CharacterGuess("i", CharacterStatus.YELLOW),
-            CharacterGuess("e", CharacterStatus.GRAY),
-            CharacterGuess("u", CharacterStatus.GRAY),
-        ]
+            [GRAY, GRAY, YELLOW, GREEN, GRAY],
+            [GRAY, GRAY, YELLOW, GREEN, GRAY],
+            [GRAY, GRAY, GRAY, GRAY, GRAY],
+            [GRAY, GRAY, YELLOW, GRAY, GRAY],
+        ],
     )
 
-    word_game3.make_guess(
+    guess(
+        "micro",
         [
-            CharacterGuess("a", CharacterStatus.GREEN),
-            CharacterGuess("d", CharacterStatus.GRAY),
-            CharacterGuess("i", CharacterStatus.GREEN),
-            CharacterGuess("e", CharacterStatus.YELLOW),
-            CharacterGuess("u", CharacterStatus.GRAY),
-        ]
+            [GRAY, GRAY, GRAY, GREEN, YELLOW],
+            [GREEN, GREEN, GREEN, GREEN, GREEN],
+            [YELLOW, YELLOW, GRAY, GRAY, GRAY],
+            [GRAY, GRAY, GRAY, GRAY, YELLOW],
+        ],
     )
 
-    word_game4.make_guess(
-        [
-            CharacterGuess("a", CharacterStatus.GRAY),
-            CharacterGuess("d", CharacterStatus.GRAY),
-            CharacterGuess("i", CharacterStatus.GRAY),
-            CharacterGuess("e", CharacterStatus.YELLOW),
-            CharacterGuess("u", CharacterStatus.YELLOW),
-        ]
-    )
-
-    word_game.make_guess(
-        [
-            CharacterGuess("s", CharacterStatus.GRAY),
-            CharacterGuess("p", CharacterStatus.GRAY),
-            CharacterGuess("o", CharacterStatus.YELLOW),
-            CharacterGuess("r", CharacterStatus.GREEN),
-            CharacterGuess("t", CharacterStatus.GRAY),
-        ]
-    )
-
-    word_game2.make_guess(
-        [
-            CharacterGuess("s", CharacterStatus.GRAY),
-            CharacterGuess("p", CharacterStatus.GRAY),
-            CharacterGuess("o", CharacterStatus.YELLOW),
-            CharacterGuess("r", CharacterStatus.GREEN),
-            CharacterGuess("t", CharacterStatus.GRAY),
-        ]
-    )
-
-    word_game3.make_guess(
-        [
-            CharacterGuess("s", CharacterStatus.GRAY),
-            CharacterGuess("p", CharacterStatus.GRAY),
-            CharacterGuess("o", CharacterStatus.GRAY),
-            CharacterGuess("r", CharacterStatus.GRAY),
-            CharacterGuess("t", CharacterStatus.GRAY),
-        ]
-    )
-
-    word_game4.make_guess(
-        [
-            CharacterGuess("s", CharacterStatus.GRAY),
-            CharacterGuess("p", CharacterStatus.GRAY),
-            CharacterGuess("o", CharacterStatus.YELLOW),
-            CharacterGuess("r", CharacterStatus.GRAY),
-            CharacterGuess("t", CharacterStatus.GRAY),
-        ]
-    )
-
-    word_game.make_guess(
-        [
-            CharacterGuess("m", CharacterStatus.GRAY),
-            CharacterGuess("i", CharacterStatus.GRAY),
-            CharacterGuess("c", CharacterStatus.GRAY),
-            CharacterGuess("r", CharacterStatus.GREEN),
-            CharacterGuess("o", CharacterStatus.YELLOW),
-        ]
-    )
-
-    word_game2.make_guess(
-        [
-            CharacterGuess("m", CharacterStatus.GREEN),
-            CharacterGuess("i", CharacterStatus.GREEN),
-            CharacterGuess("c", CharacterStatus.GREEN),
-            CharacterGuess("r", CharacterStatus.GREEN),
-            CharacterGuess("o", CharacterStatus.GREEN),
-        ]
-    )
-
-    word_game3.make_guess(
-        [
-            CharacterGuess("m", CharacterStatus.YELLOW),
-            CharacterGuess("i", CharacterStatus.YELLOW),
-            CharacterGuess("c", CharacterStatus.GRAY),
-            CharacterGuess("r", CharacterStatus.GRAY),
-            CharacterGuess("o", CharacterStatus.GRAY),
-        ]
-    )
-
-    word_game4.make_guess(
-        [
-            CharacterGuess("m", CharacterStatus.GRAY),
-            CharacterGuess("i", CharacterStatus.GRAY),
-            CharacterGuess("c", CharacterStatus.GRAY),
-            CharacterGuess("r", CharacterStatus.GRAY),
-            CharacterGuess("o", CharacterStatus.YELLOW),
-        ]
-    )
-
-    word_game.print_possible_answers()
-    word_game2.print_possible_answers()
-    word_game3.print_possible_answers()
-    word_game4.print_possible_answers()
+    GAME1.print_possible_answers()
+    GAME2.print_possible_answers()
+    GAME3.print_possible_answers()
+    GAME4.print_possible_answers()
 
 
 if __name__ == "__main__":

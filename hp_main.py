@@ -1,6 +1,6 @@
-from common_hp_words import words as common_words
-from hp_words import words
-from used_hp_words import words as used_words
+from datasets.hogwartle.allowed_words import words
+from datasets.hogwartle.common_words import words as common_words
+from datasets.hogwartle.used_words import words as used_words
 from word_game_helper import CharacterGuess, CharacterStatus, WordGameHelper
 
 
