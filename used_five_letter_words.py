@@ -242,4 +242,9 @@ words = {
     "cynic",
     "aroma",
     "caulk",
+    "shake",
+    "dodge",
+    "swill",
+    "tacit",
+    "other",
 }
