@@ -51,4 +51,8 @@ words = {
     "tonks",
     "goats",
     "grawp",
+    "hermy",
+    "felix",
+    "squib",
+    "magic",
 }

@@ -69,7 +69,10 @@ class WordGameHelper:
         print("\n".join(possible_common_answers))
 
     def _update_characters(self, position: int, guess: CharacterGuess):
-        if guess.status == CharacterStatus.GRAY:
+        if (
+            guess.status == CharacterStatus.GRAY
+            and guess.character not in self._included_characters
+        ):
             self._eliminated_characters.add(guess.character)
             return
 
@@ -77,7 +80,7 @@ class WordGameHelper:
             guess.character, ValidCharacter(set(), set())
         )
 
-        if guess.status == CharacterStatus.YELLOW:
+        if guess.status in (CharacterStatus.YELLOW, CharacterStatus.GRAY):
             value.definite_not_locations.add(position)
         else:
             value.definite_locations.add(position)

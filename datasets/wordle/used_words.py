@@ -247,4 +247,7 @@ words = {
     "swill",
     "tacit",
     "other",
+    "trove",
+    "bloke",
+    "vivid",
 }

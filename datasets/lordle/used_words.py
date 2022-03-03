@@ -52,4 +52,8 @@ words = {
     "price",
     "hoots",
     "clear",
+    "likes",
+    "haste",
+    "daunt",
+    "brats",
 }
