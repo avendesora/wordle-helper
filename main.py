@@ -10,7 +10,7 @@ def main():
     word_game.make_guess(
         [
             CharacterGuess("a", CharacterStatus.GRAY),
-            CharacterGuess("u", CharacterStatus.GREEN),
+            CharacterGuess("u", CharacterStatus.GRAY),
             CharacterGuess("d", CharacterStatus.GRAY),
             CharacterGuess("i", CharacterStatus.GRAY),
             CharacterGuess("o", CharacterStatus.GRAY),
@@ -19,23 +19,23 @@ def main():
 
     word_game.make_guess(
         [
-            CharacterGuess("t", CharacterStatus.GRAY),
-            CharacterGuess("u", CharacterStatus.GREEN),
-            CharacterGuess("b", CharacterStatus.GRAY),
-            CharacterGuess("e", CharacterStatus.GREEN),
-            CharacterGuess("r", CharacterStatus.YELLOW),
+            CharacterGuess("c", CharacterStatus.GRAY),
+            CharacterGuess("r", CharacterStatus.GRAY),
+            CharacterGuess("a", CharacterStatus.GRAY),
+            CharacterGuess("n", CharacterStatus.GRAY),
+            CharacterGuess("e", CharacterStatus.YELLOW),
         ]
     )
 
-    # word_game.make_guess(
-    #     [
-    #         CharacterGuess("b", CharacterStatus.GRAY),
-    #         CharacterGuess("r", CharacterStatus.GREEN),
-    #         CharacterGuess("o", CharacterStatus.GREEN),
-    #         CharacterGuess("t", CharacterStatus.YELLOW),
-    #         CharacterGuess("h", CharacterStatus.GRAY),
-    #     ]
-    # )
+    word_game.make_guess(
+        [
+            CharacterGuess("s", CharacterStatus.YELLOW),
+            CharacterGuess("l", CharacterStatus.GRAY),
+            CharacterGuess("e", CharacterStatus.YELLOW),
+            CharacterGuess("p", CharacterStatus.GRAY),
+            CharacterGuess("t", CharacterStatus.YELLOW),
+        ]
+    )
 
     word_game.print_possible_answers()
 

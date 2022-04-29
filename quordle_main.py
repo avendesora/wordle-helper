@@ -1,6 +1,6 @@
+from datasets.quordle.used_words import words as used_words
 from datasets.wordle.allowed_words import words as words
 from datasets.wordle.common_words import words as common_words
-from datasets.quordle.used_words import words as used_words
 from word_game_helper import CharacterGuess, CharacterStatus, WordGameHelper
 
 GRAY: CharacterStatus = CharacterStatus.GRAY
@@ -9,10 +9,10 @@ YELLOW: CharacterStatus = CharacterStatus.YELLOW
 
 # common_words = set()
 
-GAME1: WordGameHelper = WordGameHelper(words, common_words, used_words)
-GAME2: WordGameHelper = WordGameHelper(words, common_words, used_words)
-GAME3: WordGameHelper = WordGameHelper(words, common_words, used_words)
-GAME4: WordGameHelper = WordGameHelper(words, common_words, used_words)
+GAME1: WordGameHelper = WordGameHelper(words, common_words, set())
+GAME2: WordGameHelper = WordGameHelper(words, common_words, set())
+GAME3: WordGameHelper = WordGameHelper(words, common_words, set())
+GAME4: WordGameHelper = WordGameHelper(words, common_words, set())
 
 GAMES: list[WordGameHelper] = [GAME1, GAME2, GAME3, GAME4]
 
@@ -38,82 +38,52 @@ def guess(word: str, statuses: list[list[CharacterStatus]]) -> None:
 
 def main():
     guess(
-        "ADIEU",
+        "CRANE",
         [
-            [YELLOW, GRAY, GRAY, YELLOW, GRAY],
-            [GRAY, GRAY, GRAY, GREEN, GRAY],
-            [GRAY, GRAY, GREEN, YELLOW, GRAY],
-            [YELLOW, GRAY, GRAY, YELLOW, GRAY],
-        ],
-    )
-
-    guess(
-        "SPORT",
-        [
+            [GRAY, GRAY, GRAY, GRAY, GRAY],
             [GRAY, GRAY, GRAY, YELLOW, GRAY],
-            [GRAY, GRAY, GRAY, YELLOW, YELLOW],
-            [GRAY, GRAY, YELLOW, GRAY, GRAY],
-            [GREEN, GRAY, GRAY, YELLOW, GRAY],
-        ],
-    )
-
-    guess(
-        "VOICE",
-        [
-            [YELLOW, GRAY, GRAY, YELLOW, GREEN],
-            [GRAY, GRAY, GRAY, GRAY, YELLOW],
-            [YELLOW, YELLOW, GREEN, GRAY, GREEN],
-            [GRAY, GRAY, GRAY, GRAY, YELLOW],
-        ],
-    )
-
-    guess(
-        "OLIVE",
-        [
+            [GRAY, GREEN, GREEN, GRAY, GREEN],
             [GRAY, GRAY, GRAY, GREEN, GREEN],
-            [GRAY, GRAY, GRAY, GRAY, YELLOW],
-            [GREEN, GRAY, GREEN, YELLOW, GREEN],
-            [GRAY, GRAY, GRAY, GRAY, YELLOW],
         ],
     )
 
     guess(
-        "OVINE",
+        "SHONE",
         [
-            [GRAY, YELLOW, GRAY, GRAY, GREEN],
-            [GRAY, GRAY, GRAY, GRAY, YELLOW],
+            [GREEN, GRAY, GREEN, GRAY, GRAY],
+            [GRAY, GRAY, GRAY, YELLOW, GRAY],
+            [GRAY, GRAY, GRAY, GRAY, GREEN],
+            [GRAY, GREEN, GRAY, GREEN, GREEN],
+        ],
+    )
+
+    guess(
+        "WHINE",
+        [
+            [GRAY, GRAY, YELLOW, GRAY, GRAY],
+            [GRAY, GRAY, YELLOW, YELLOW, GRAY],
+            [GRAY, GRAY, GRAY, GRAY, GREEN],
             [GREEN, GREEN, GREEN, GREEN, GREEN],
-            [GRAY, GRAY, GRAY, GRAY, YELLOW],
         ],
     )
 
     guess(
-        "CARVE",
+        "SPOIL",
         [
             [GREEN, GREEN, GREEN, GREEN, GREEN],
-            [GRAY, GRAY, YELLOW, GRAY, YELLOW],
+            [GRAY, GRAY, GRAY, GREEN, GRAY],
+            [GRAY, GRAY, GRAY, GRAY, GRAY],
             None,
-            [GRAY, YELLOW, YELLOW, GRAY, YELLOW],
         ],
     )
 
     guess(
-        "ETHER",
+        "GRADE",
         [
             None,
-            [YELLOW, YELLOW, GRAY, GREEN, GREEN],
+            [GRAY, GRAY, GRAY, GRAY, GRAY],
+            [GREEN, GREEN, GREEN, GRAY, GREEN],
             None,
-            [YELLOW, GRAY, GRAY, GRAY, GREEN],
-        ],
-    )
-
-    guess(
-        "METER",
-        [
-            None,
-            [GREEN, GREEN, GREEN, GREEN, GREEN],
-            None,
-            [YELLOW, YELLOW, GRAY, GRAY, GREEN],
         ],
     )
 
