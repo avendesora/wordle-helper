@@ -19,10 +19,10 @@ def main():
 
     word_game.make_guess(
         [
-            CharacterGuess("s", CharacterStatus.YELLOW),
-            CharacterGuess("l", CharacterStatus.GRAY),
-            CharacterGuess("e", CharacterStatus.YELLOW),
-            CharacterGuess("p", CharacterStatus.GRAY),
+            CharacterGuess("p", CharacterStatus.YELLOW),
+            CharacterGuess("i", CharacterStatus.GRAY),
+            CharacterGuess("l", CharacterStatus.YELLOW),
+            CharacterGuess("o", CharacterStatus.GRAY),
             CharacterGuess("t", CharacterStatus.YELLOW),
         ]
     )
